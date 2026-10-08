@@ -1,0 +1,35 @@
+/* Кнопка сброса подсветки поиска */
+.search-reset {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 4.5rem;          /* над подвалом сайта */
+  z-index: 100;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 0.4rem;
+  background-color: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color);
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 700;
+  box-shadow: var(--md-shadow-z2);
+  cursor: pointer;
+}
+.search-reset:hover {
+  background-color: var(--md-accent-fg-color);
+}
+
+/* Вложенные разделы меню («Алгоритмы кластеризации») — просто заголовки */
+.md-nav__item--nested .md-nav__item--nested > label.md-nav__link {
+  pointer-events: none;
+  font-weight: 700;
+}
+.md-nav__item--nested .md-nav__item--nested > label.md-nav__link .md-nav__icon {
+  display: none;
+}
+
+/* Разделы в строке пути над заголовком тоже не кликабельны (кроме «Главная») */
+.md-path__item:not(:first-child) .md-path__link {
+  pointer-events: none;
+}
+

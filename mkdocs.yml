@@ -1,0 +1,85 @@
+site_name: Wiki
+site_description: Документация проекта
+site_url: https://ivanovvaak.github.io/QDeepWiki/
+
+theme:
+  name: material
+  language: ru
+  features:
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.path        # «хлебные крошки» над заголовком
+    - search.highlight
+    - content.code.copy
+  palette:
+    - scheme: default
+      primary: indigo
+      toggle:
+        icon: material/weather-night
+        name: Тёмная тема
+    - scheme: slate
+      primary: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Светлая тема
+
+plugins:
+  - search:
+      lang: [ru, en]
+
+markdown_extensions:
+  - admonition               # цветные блоки «Черновик», «Внимание»
+  - pymdownx.details
+  - attr_list
+  - tables
+  - toc
+  - pymdownx.arithmatex:     # формулы
+      generic: true
+  - pymdownx.superfences:    # схемы Mermaid
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - javascripts/search-reset.js
+  - javascripts/sidebar-scroll.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+nav:
+  - Главная: index.md
+  - О проекте:
+      - Описание проблем заказчика: about/customer.md
+      - Требования: about/requirements.md
+  - Постановка задачи:
+      - Строгая постановка задачи: problem/statement.md
+      - Строгая математическая формализация проекта: problem/formalization.md
+  - Как устроена система:
+      - Конвейер решения: system/pipeline.md
+      - Алгоритмы кластеризации:
+          - Sweep: system/clustering/sweep.md
+          - Clarke-Wright: system/clustering/clarke-wright.md
+          - DBSCAN: system/clustering/dbscan.md
+          - Adaptive DBSCAN: system/clustering/adaptive-dbscan.md
+          - RSI: system/clustering/rsi.md
+      - Маршрутизация и назначение курьеров: system/routing.md
+      - Точный решатель: system/exact-solver.md
+  - Данные:
+      - Входные данные: data/input.md
+      - Датасет для экспериментов: data/dataset.md
+      - Данные, сохраняемые системой: data/stored.md
+  - Исследования:
+      - План работ: research/plan.md
+      - Журнал экспериментов: research/experiments.md
+  - Разработчикам:
+      - Структура кода: dev/code-structure.md
+      - Правила разработки: dev/conventions.md
+  - Встречи и решения:
+      - Встречи с заказчиком: meetings/customer-meetings.md
+      - Журнал решений: meetings/decisions.md
+  - User's manual: users-manual.md
