@@ -33,7 +33,10 @@ markdown_extensions:
   - pymdownx.details
   - attr_list
   - tables
-  - toc
+  - toc:
+      slugify: !!python/object/apply:pymdownx.slugs.slugify   # якоря для русских заголовков
+        kwds:
+          case: lower
   - pymdownx.arithmatex:     # формулы
       generic: true
   - pymdownx.superfences:    # схемы Mermaid
@@ -55,10 +58,14 @@ nav:
   - Главная: index.md
   - О проекте:
       - Описание проблем заказчика: about/customer.md
-      - Требования: about/requirements.md
   - Постановка задачи:
-      - Строгая постановка задачи: problem/statement.md
+      - Общая постановка задачи: problem/overview.md
       - Строгая математическая формализация проекта: problem/formalization.md
+  - Требования:
+      - Функциональные требования: requirements/functional.md
+      - Сценарии использования: requirements/use-cases.md
+      - Нефункциональные требования: requirements/non-functional.md
+      - Бизнес-правила и модель стоимости: requirements/business-rules.md
   - Как устроена система:
       - Конвейер решения: system/pipeline.md
       - Алгоритмы кластеризации:
@@ -70,7 +77,7 @@ nav:
       - Маршрутизация и назначение курьеров: system/routing.md
       - Точный решатель: system/exact-solver.md
   - Данные:
-      - Входные данные: data/input.md
+      - Модель данных: data/model.md
       - Датасет для экспериментов: data/dataset.md
       - Данные, сохраняемые системой: data/stored.md
   - Исследования:
